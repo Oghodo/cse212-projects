@@ -30,38 +30,49 @@ public class Maze
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
-    public void MoveLeft()
-    {
-        // FILL IN CODE
-    }
+   public void MoveLeft()
+{
+    if (_mazeMap.TryGetValue((_currX, _currY), out bool[] directions) && directions[0])
+        _currX--;
+    else
+        throw new InvalidOperationException("Can't go that way!");
+}
 
     /// <summary>
     /// Check to see if you can move right.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
-    public void MoveRight()
-    {
-        // FILL IN CODE
-    }
+public void MoveRight()
+{
+    if (_mazeMap.TryGetValue((_currX, _currY), out bool[] directions) && directions[1])
+        _currX++;
+    else
+        throw new InvalidOperationException("Can't go that way!");
+}
+
 
     /// <summary>
     /// Check to see if you can move up.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
-    public void MoveUp()
-    {
-        // FILL IN CODE
-    }
-
+public void MoveUp()
+{
+    if (_mazeMap.TryGetValue((_currX, _currY), out bool[] directions) && directions[2])
+        _currY--;
+    else
+        throw new InvalidOperationException("Can't go that way!");
+}
     /// <summary>
     /// Check to see if you can move down.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
     /// </summary>
-    public void MoveDown()
-    {
-        // FILL IN CODE
-    }
-
+public void MoveDown()
+{
+    if (_mazeMap.TryGetValue((_currX, _currY), out bool[] directions) && directions[3])
+        _currY++;
+    else
+        throw new InvalidOperationException("Can't go that way!");
+}
     public string GetStatus()
     {
         return $"Current location (x={_currX}, y={_currY})";
